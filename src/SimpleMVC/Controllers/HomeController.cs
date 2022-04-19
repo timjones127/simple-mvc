@@ -32,7 +32,7 @@ namespace SimpleMVC.Controllers
             return View(vm);
         }
 
-        public IActionResult Success(string ticketId)
+        public IActionResult Success()
         {
             if (TempData.ContainsKey("Ticketid"))
             {
