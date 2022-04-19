@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Incident Form";
+}
+@model SimpleMVC.ViewModels.SubmitIncidentViewModel;
+<div id="form">
+    <div class="container mt-1 mt-md-5">
+        <div class="card auto-margin" style="max-width:550px;">
+            <div class="card-body">
+                <img src="~/images/logoipsum-logo-8.svg" />
+                
+                <div id="form1">
+                    <div class="alert alert-info mt-3" role="alert">
+                        <p class="text-center disclaimer m-0">Please submit your request below for the IT Team to review</p>
+                    </div>
+                    <div id="error-text" class="alert alert-danger" role="alert" style="display:none">
+                        <p>
+                            An error has occured during your submission please try your submission again. If the problem persist please contact support at 215-662-7474.
+                        </p>
+                    </div>
+                    <form method="post">
+                        <div class="form-group">
+                            <label asp-for="FirstName"></label>:<span class="pl-1 text-danger">*</span>
+                            <input class="form-control" asp-for="FirstName">
+                            <span class="form-text text-danger" asp-validation-for="FirstName"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName"></label>:<span class="pl-1 text-danger">*</span>
+                            <input class="form-control" asp-for="LastName">
+                            <span class="form-text text-danger" asp-validation-for="LastName"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Phone"></label>:
+                            <input asp-for="Phone" class="form-control phone-mask">
+                            <span class="form-text text-danger" asp-validation-for="Phone"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email"></label>:<span class="pl-1 text-danger">*</span>
+                            <input asp-for="Email" class="form-control">
+                            <span class="form-text text-danger" asp-validation-for="Email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ClassificationId">What category best describes your issue?</label>:<span class="pl-1 text-danger">*</span>
+                            <select asp-for="ClassificationId" class="form-control" asp-items="Model.Categories">
+                                <option value="">Select Category</option>
+                            </select>
+                            <span class="form-text text-danger" asp-validation-for="ClassificationId"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Title"></label>:<span class="pl-1 text-danger">*</span>
+                            <input asp-for="Title" class="form-control">
+                            <span class="form-text text-danger" asp-validation-for="Title"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description"></label>:<span class="pl-1 text-danger">*</span>
+                            <textarea asp-for="Description" type="text" rows="5" class="form-control" id="desc"></textarea>
+                            <span class="form-text text-danger" asp-validation-for="Description"></span>
+                        </div>
+                        <button asp-controller="Home"  class="btn btn-primary btn-block mt-5">Submit</button>
+                    </form>
+                </div>
+       
+
+            </div>
+        </div>
+    </div>
+</div>
